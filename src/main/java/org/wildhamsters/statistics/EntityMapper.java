@@ -3,7 +3,7 @@ package org.wildhamsters.statistics;
 /**
  * @author Piotr Chowaniec
  */
-public class EntityMapper {
+class EntityMapper {
 
     SingleMatchStatistics map(MatchStatisticsEntity entity) {
         return new SingleMatchStatistics(
