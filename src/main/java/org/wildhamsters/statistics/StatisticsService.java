@@ -23,12 +23,16 @@ public class StatisticsService {
         return new StatisticsDTO(getMatchStatisticsList());
     }
 
-    List<SingleMatchStatistics> getMatchStatisticsList() {
+    private List<SingleMatchStatistics> getMatchStatisticsList() {
         var statisticsList = new ArrayList<SingleMatchStatistics>();
         var mapper = new EntityMapper();
         for (MatchStatisticsEntity entity : repository.findAll()) {
             statisticsList.add(mapper.map(entity));
         }
         return statisticsList;
+    }
+
+    void saveCurrentMatchStatistics(CurrentMatchStatistics currentMatchStatistics) {
+        repository.save(new MatchStatisticsEntityMapper().map(currentMatchStatistics));
     }
 }
