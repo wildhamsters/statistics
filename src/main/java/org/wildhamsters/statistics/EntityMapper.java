@@ -3,9 +3,10 @@ package org.wildhamsters.statistics;
 /**
  * @author Piotr Chowaniec
  */
-class EntityMapper {
+class EntityMapper implements Mapper<MatchStatisticsEntity, SingleMatchStatistics> {
 
-    SingleMatchStatistics map(MatchStatisticsEntity entity) {
+    @Override
+    public SingleMatchStatistics map(MatchStatisticsEntity entity) {
         return new SingleMatchStatistics(
                 entity.getId(),
                 entity.getMatchId(),
